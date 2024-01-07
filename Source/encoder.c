@@ -19,5 +19,5 @@ ISR(INT1_vect)
 void initEncoder(void)
 {
 	PORTD |= _BV(PD3) | _BV(PD2);		/*SW, CLK*/
-	PORTC |= _BV(PC0);					/*DT*/
+	PORTC |= _BV(PC0);			/*DT*/
 }
