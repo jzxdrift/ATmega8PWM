@@ -7,18 +7,18 @@
 #include "timers.h"
 #include "pwm.h"
 
-#define DUTY_FREQ_STEP	2
+#define DUTY_FREQ_STEP		2
 #define MAX_FREQ		0x270F
 
 void initPWM(void)
 {
-	DDRB |= _BV(DDB1);				/*OC1A pin output*/
+	DDRB |= _BV(DDB1);			/*OC1A pin output*/
 	
 	TCCR1A |= _BV(COM1A1);			/*clear OC1A on Compare Match when up-counting, set OC1A when down-counting*/
 	TCCR1B |= _BV(WGM13);			/*define PWM resolution by ICR1*/
 	TCCR1B |= _BV(CS10);			/*no prescaler*/
 	
-	ICR1 = 0x03FF;					/*PWM resolution*/
+	ICR1 = 0x03FF;				/*PWM resolution*/
 	OCR1A = DEFAULT_DUTY_CYCLE;		/*duty cycle based on resolution*/
 }
 
